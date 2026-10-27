@@ -1,0 +1,77 @@
+/* A simple anniversary note. Passwords and QR links are handled by app.js. */
+:root {
+  --background: #f8f6f3;
+  --paper: #fffefa;
+  --ink: #343136;
+  --muted: #787277;
+  --rose: #a66d7c;
+  --rose-dark: #82515e;
+  --line: #eae2df;
+  --clue-bg: #faf4f3;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 90% 5%, #f5ecec 0, transparent 38%),
+              radial-gradient(circle at 3% 93%, #f8efed 0, transparent 36%),
+              var(--background);
+  color: var(--ink);
+  font: 15px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body.chapter-two {
+  --rose: #918098;
+  --rose-dark: #796581;
+  --clue-bg: #f8f6f9;
+}
+.page { width: min(100% - 36px, 520px); margin: 0 auto; padding: clamp(48px, 9vh, 100px) 0 45px; }
+.intro { text-align: center; margin-bottom: 30px; }
+.eyebrow { margin: 0 0 8px; color: var(--rose); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .18em; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: normal; }
+h1 { margin: 0 0 7px; font-size: clamp(38px, 9vw, 49px); line-height: 1.2; letter-spacing: -.04em; }
+.tagline { color: var(--muted); margin: 0; font-size: 13px; }
+.note { background: var(--paper); border: 1px solid var(--line); border-radius: 13px; padding: 28px 34px 36px; box-shadow: 0 10px 35px rgba(65, 38, 49, .035); }
+.note-top { display: flex; align-items: center; justify-content: space-between; gap: 15px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+.note-top > span { color: var(--muted); font-size: 12px; }
+.chapter-dots { display: flex; gap: 7px; }
+.chapter-dots i { display: block; width: 7px; height: 7px; background: #e6dcda; border-radius: 50%; }
+.chapter-dots i.active { background: var(--rose); }
+.panel { padding-top: 30px; }
+h2 { font-size: clamp(26px, 6vw, 32px); letter-spacing: -.03em; line-height: 1.25; margin: 0 0 12px; }
+.description { color: var(--muted); font-size: 14px; line-height: 1.8; margin: 0 0 27px; }
+#waiting-panel .description { margin-bottom: 4px; }
+form label { display: block; font-size: 12px; font-weight: 650; margin-bottom: 9px; }
+.input-shell { background: #fff; border: 1px solid #dcd6d5; border-radius: 7px; display: flex; align-items: center; transition: border-color .15s ease, box-shadow .15s ease; }
+.input-shell:focus-within { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(166,109,124,.11); }
+.input-shell input { width: 100%; min-width: 0; flex: 1; border: 0; outline: 0; padding: 13px 15px; font: inherit; font-size: 14px; color: var(--ink); background: transparent; }
+.input-shell input::placeholder { color: #a9a1a1; }
+.toggle-password { border: 0; background: transparent; color: var(--rose-dark); font-size: 12px; cursor: pointer; padding: 13px 15px; }
+.form-error { min-height: 17px; margin: 7px 0 7px; color: #a24e55; font-size: 12px; }
+.primary-button { display: block; width: 100%; min-height: 46px; background: var(--rose-dark); color: white; border: 0; border-radius: 7px; font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; cursor: pointer; }
+.primary-button:hover { background: #69414a; }
+.chapter-two .primary-button:hover { background: #605069; }
+.primary-button:focus-visible, .toggle-password:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+.hint { margin: 13px 0 0; text-align: center; color: #938b8e; font-size: 11px; }
+.unlocked-eyebrow { color: var(--rose); font-size: 12px; font-weight: 650; margin: 0 0 7px; }
+.message { font-size: 14px; line-height: 1.85; white-space: pre-line; margin: 0 0 24px; }
+.photo-frame { margin: 0 0 28px; }
+.photo-frame img { width: 100%; max-height: 330px; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 5px; background: #f5efec; }
+.photo-frame figcaption { margin: 7px 0 0; color: var(--muted); text-align: center; font-size: 12px; }
+.clue { border-top: 1px solid var(--line); padding-top: 23px; }
+.clue-kicker { color: var(--rose); font-size: 10px !important; letter-spacing: .16em; font-weight: 700; margin: 0 0 7px !important; }
+.clue h3 { font-size: 23px; letter-spacing: -.02em; margin: 0 0 7px; }
+.clue p { margin: 0; font-size: 14px; line-height: 1.8; }
+.footer { color: #999095; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; font-size: 11px; }
+.appear { animation: appear .28s ease both; }
+@keyframes appear { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+.shake { animation: nudge .2s ease; }
+@keyframes nudge { 0%,100% {transform:translateX(0)} 30% {transform:translateX(-3px)} 70% {transform:translateX(3px)} }
+@media (max-width: 500px) {
+  .page { width: min(100% - 28px, 520px); padding-top: 53px; }
+  .note { padding: 24px 22px 28px; }
+  .panel { padding-top: 25px; }
+  .footer { padding: 0 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .appear, .shake { animation: none; } }

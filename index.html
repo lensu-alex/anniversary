@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f6f3">
+  <meta name="description" content="A small anniversary treasure hunt.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <title>A little something for you</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">This will be an intresting date</p>
+      <h1>Follow the clues that guide you to the next thing we will do!</h1>
+      <p id="site-tagline" class="tagline">a small game I made for our anniversary</p>
+    </header>
+
+    <article class="note" aria-label="Anniversary treasure hunt">
+      <div class="note-top">
+        <span id="chapter-label">a little note</span>
+        <div class="chapter-dots" aria-hidden="true"><i id="dot-1"></i><i id="dot-2"></i></div>
+      </div>
+
+      <section id="waiting-panel" class="panel" hidden>
+        <h2>There’s a little more to this page.</h2>
+        <p class="description">Use the QR code I gave you to get started.</p>
+      </section>
+
+      <section id="locked-panel" class="panel" hidden>
+        <h2 id="locked-heading">You found it.</h2>
+        <p id="locked-text" class="description"></p>
+        <form id="password-form" autocomplete="off" novalidate>
+          <label for="secret-password">Password</label>
+          <div class="input-shell">
+            <input id="secret-password" name="password" type="password" autocomplete="off" spellcheck="false" placeholder="enter it here" maxlength="100" required>
+            <button type="button" id="toggle-password" class="toggle-password" aria-label="Show password" aria-pressed="false">show</button>
+          </div>
+          <p id="password-error" class="form-error" role="alert" aria-live="polite"></p>
+          <button type="submit" class="primary-button">unlock</button>
+        </form>
+        <p class="hint">capital letters don't matter</p>
+      </section>
+
+      <section id="unlocked-panel" class="panel revealed-panel" hidden>
+        <p class="unlocked-eyebrow" id="unlocked-eyebrow"></p>
+        <h2 id="unlocked-heading"></h2>
+        <p id="unlocked-message" class="message"></p>
+        <figure class="photo-frame">
+          <img id="photo" src="assets/little-us-1.svg" alt="A picture of us together">
+          <figcaption id="photo-caption"></figcaption>
+        </figure>
+        <div class="clue">
+          <p class="clue-kicker">THE NEXT CLUE</p>
+          <h3 id="clue-title">Where to next?</h3>
+          <p id="clue-text"></p>
+        </div>
+      </section>
+    </article>
+
+    <footer class="footer">
+      <span id="footer-message">made just for you.</span>
+      <span id="couple-name">you + me</span>
+    </footer>
+  </main>
+</body>
+</html>
