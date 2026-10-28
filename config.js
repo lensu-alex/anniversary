@@ -5,7 +5,7 @@
 */
 window.HUNT_CONFIG = {
   coupleName: "SA<3",
-  littleTagline: "can you find the spot in the picture? what does it remind you of?)",
+  littleTagline: "man its crazy we are already at 3 years (tommorow ofc)",
   footerMessage: "for my cute shrimpy",
   chapters: [
     {
