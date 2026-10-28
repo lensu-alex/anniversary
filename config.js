@@ -15,7 +15,7 @@ window.HUNT_CONFIG = {
       qrTitle: "First Spot",
       qrInstruction: "Start here",
       lockedHeading: "You found the first one;)",
-      lockedText: "Enter the password to see what comes next.",
+      lockedText: "The password will be obvious trust",
       unlockedEyebrow: "you are so sigma",
       unlockedHeading: "well done!!! we can now find the next place 🥰",
       unlockedMessage: "Happy anniversary!!! I hope you are having fun with it",
